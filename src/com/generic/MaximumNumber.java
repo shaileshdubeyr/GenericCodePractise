@@ -12,32 +12,31 @@ public class MaximumNumber<T extends Comparable<T>> {
 		valueeThree = third;
 	}
 	
-	public static int userInput() {
+	public static String userInput() {
 		System.out.println("enter the value");
 		Scanner inputObj = new Scanner(System.in);
-		int integer = inputObj.nextInt();
-		return integer;
+		 String StringValue = inputObj.nextLine();
+		return StringValue;
 	}
 	
-	public T maximumValue() {
+	public String maximumValue() {
 		if(valueOne.compareTo(valueTwo) > 0) {
-			return valueOne;
+			return (String)valueOne;
 		}
 		else if (valueTwo.compareTo(valueeThree) > 0)
-			return valueTwo;
+			return (String)valueTwo;
 		else 
-			return valueeThree;
+			return (String)valueeThree;
 	}
+	
 	public static void main(String[] args) {
-		System.out.println("enter the three value ");
-		float firstValue = userInput();
-		float secondValue = userInput();
-		float thirdValue = userInput();
+		System.out.println("enter the three String ");
+		String firstValue = userInput();
+		String secondValue = userInput();
+		String thirdValue = userInput();
 		
-		MaximumNumber<Float> numberObj = new MaximumNumber<Float>(firstValue, secondValue, thirdValue);
-		float maxvalue = numberObj.maximumValue();
-		System.out.println("maximum value is "+maxvalue);
-		
-		
+		MaximumNumber<String> numberObj = new MaximumNumber<String>(firstValue, secondValue, thirdValue);
+		String maxvalue = numberObj.maximumValue();
+		System.out.println("the grater string  is "+maxvalue);
 	}
 }
