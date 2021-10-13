@@ -6,9 +6,9 @@ public class MaximumNumber<T extends Comparable<T>> {
 	T valueOne;
 	T valueTwo;
 	T valueeThree;
-	public MaximumNumber(T first, T second, T third ) {
-		valueOne = first;
-		valueTwo = second;
+	public MaximumNumber(T firstNumber, T secondNumber, T third ) {
+		valueOne = firstNumber;
+		valueTwo = secondNumber;
 		valueeThree = third;
 	}
 	
@@ -30,12 +30,12 @@ public class MaximumNumber<T extends Comparable<T>> {
 	}
 	public static void main(String[] args) {
 		System.out.println("enter the three value ");
-		int firstValue = userInput();
-		int secondValue = userInput();
-		int thirdValue = userInput();
+		float firstValue = userInput();
+		float secondValue = userInput();
+		float thirdValue = userInput();
 		
-		MaximumNumber<Integer> numberObj = new MaximumNumber<Integer>(firstValue, secondValue, thirdValue);
-		int maxvalue = numberObj.maximumValue();
+		MaximumNumber<Float> numberObj = new MaximumNumber<Float>(firstValue, secondValue, thirdValue);
+		float maxvalue = numberObj.maximumValue();
 		System.out.println("maximum value is "+maxvalue);
 		
 		
