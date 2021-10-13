@@ -36,8 +36,6 @@ public class MaximumNumber<T extends Comparable<T>> {
 		
 		MaximumNumber<Float> numberObj = new MaximumNumber<Float>(firstValue, secondValue, thirdValue);
 		float maxvalue = numberObj.maximumValue();
-		System.out.println("maximum value is "+maxvalue);
-		
-		
+		System.out.println("maximum value is "+maxvalue);	
 	}
 }
