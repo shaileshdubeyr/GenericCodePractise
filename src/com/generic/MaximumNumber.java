@@ -1,40 +1,41 @@
 package com.generic;
+
 import java.util.Scanner;
 
 public class MaximumNumber<T extends Comparable<T>> {
-	T valueOne;
-	T valueTwo;
-	T valueeThree;
-	public MaximumNumber(T firstNumber, T secondNumber, T third ) {
-		valueOne = firstNumber;
-		valueTwo = secondNumber;
-		valueeThree = third;
+	T ValueOne, valueTwo, valueThree;
+
+	public MaximumNumber(T valueOne, T ValueTwo, T valueThree) {
+		this.ValueOne = valueOne;
+		this.valueTwo = ValueTwo;
+		this.valueThree = valueThree;
 	}
 
-	public static int userInput() {
-		System.out.println("enter the value");
-		Scanner inputObj = new Scanner(System.in);
-		int integer = inputObj.nextInt();
-		return integer;
+	public T maximum() {
+		return MaximumNumber.maximum(ValueOne, valueTwo, valueThree);
 	}
-	
-	public T maximumValue() {
-		if(valueOne.compareTo(valueTwo) > 0) {
-			return valueOne;
-		}
-		else if (valueTwo.compareTo(valueeThree) > 0)
-			return valueTwo;
-		else 
-			return valueeThree;
+
+	public static <T extends Comparable<T>> T maximum(T valueOne, T valueTwo, T ValueThree) {
+		T maximum = valueOne;
+		if (valueTwo.compareTo(maximum) > 0)
+			maximum = valueTwo;
+		if (ValueThree.compareTo(maximum) > 0)
+			maximum = ValueThree;
+		return maximum;
+
 	}
-	
+
 	public static void main(String[] args) {
-		System.out.println("enter the three value ");
-		Integer firstValue = userInput();
-		Integer secondValue = userInput();
-		Integer thirdValue = userInput();
-		MaximumNumber<Integer> numberObj = new MaximumNumber<Integer>(firstValue, secondValue, thirdValue);
-		Integer maxvalue = numberObj.maximumValue();
-		System.out.println("maximum value is " +maxvalue);
+		Scanner userInput = new Scanner(System.in);
+		System.out.println("enter the first one");
+		Integer intOne = userInput.nextInt();
+		System.out.println("enter the second value");
+		Integer intTwo = userInput.nextInt();
+		System.out.println("enter the third value");
+		Integer intThree = userInput.nextInt();
+		new MaximumNumber(intOne, intTwo, intThree).maximum();
+		System.out.println("Print Maximum Number is :" + " " + new MaximumNumber(intOne, intTwo, intThree).maximum());
+
 	}
+
 }
