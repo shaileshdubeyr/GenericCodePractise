@@ -2,42 +2,27 @@ package com.generic;
 
 import java.util.Scanner;
 
-public class MaximumNumber<T extends Comparable<T>> {
-	T valueOne;
-	T valueTwo;
-	T valueeThree;
-	public MaximumNumber(T firstNumber, T secondNumber, T third ) {
-		valueOne = firstNumber;
-		valueTwo = secondNumber;
-		valueeThree = third;
-	}
+public class MaximumNumber {
 	
-	public static int userInput() {
-		System.out.println("enter the value");
-		Scanner inputObj = new Scanner(System.in);
-		int integer = inputObj.nextInt();
-		return integer;
-	}
+	static Scanner userInput = new Scanner(System.in);
 	
-	public T maximumValue() {
-		if(valueOne.compareTo(valueTwo) > 0) {
+	public static Float findMaximumNumberForFloat(Float valueOne, Float valueTwo, Float valueThree) {
+		if(valueOne.compareTo(valueTwo) > 0 && valueOne.compareTo(valueThree) > 0)
 			return valueOne;
-		}
-		else if (valueTwo.compareTo(valueeThree) > 0)
+		else if (valueTwo.compareTo(valueOne) > 0 && valueTwo.compareTo(valueThree) > 0)
 			return valueTwo;
 		else 
-			return valueeThree;
+			return valueThree;		
 	}
+	
 	public static void main(String[] args) {
-		System.out.println("enter the three value ");
-		float firstValue = userInput();
-		float secondValue = userInput();
-		float thirdValue = userInput();
-		
-		MaximumNumber<Float> numberObj = new MaximumNumber<Float>(firstValue, secondValue, thirdValue);
-		float maxvalue = numberObj.maximumValue();
-		System.out.println("maximum value is "+maxvalue);
-		
-		
+		System.out.println("Enter the first number");
+		Float numberOne = userInput.nextFloat();
+		System.out.println("Enter the second number");
+		Float numberTwo = userInput.nextFloat();
+		System.out.println("Enter third number");
+		Float numberThree = userInput.nextFloat();
+		Float maxValue = findMaximumNumberForFloat(numberOne, numberTwo, numberThree);
+		System.out.println("The maximum value among three is "+maxValue);
 	}
 }
