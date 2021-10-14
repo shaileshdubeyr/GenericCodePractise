@@ -6,7 +6,7 @@ public class MaximumNumber {
 	
 	static Scanner userInput = new Scanner(System.in);
 	
-	public static Float findMaximumNumberForFloat(Float valueOne, Float valueTwo, Float valueThree) {
+	public static Float findMaximumNumberForFloat(Float valueOne, Float valueTwo,Float valueThree) {
 		if(valueOne.compareTo(valueTwo) > 0 && valueOne.compareTo(valueThree) > 0)
 			return valueOne;
 		else if (valueTwo.compareTo(valueOne) > 0 && valueTwo.compareTo(valueThree) > 0)
