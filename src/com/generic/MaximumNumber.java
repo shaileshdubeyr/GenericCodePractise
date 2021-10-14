@@ -1,36 +1,40 @@
 package com.generic;
+import java.util.Scanner;
 
 public class MaximumNumber<T extends Comparable<T>> {
 	T valueOne;
 	T valueTwo;
 	T valueeThree;
-
-	public MaximumNumber(T firstNumber, T secondNumber, T third) {
+	public MaximumNumber(T firstNumber, T secondNumber, T third ) {
 		valueOne = firstNumber;
 		valueTwo = secondNumber;
 		valueeThree = third;
 	}
+
+	public static int userInput() {
+		System.out.println("enter the value");
+		Scanner inputObj = new Scanner(System.in);
+		int integer = inputObj.nextInt();
+		return integer;
+	}
 	
-	public static <T> void maximumValue(T firstNumber, T secondNumber, T thirdNumber) {
-		System.out.println("first number is " +firstNumber+" second number is " +secondNumber+" third number is " +thirdNumber);
-	}
-
 	public T maximumValue() {
-		
-		if (valueOne.compareTo(valueTwo) > 0) {
+		if(valueOne.compareTo(valueTwo) > 0) {
 			return valueOne;
-		} else if (valueTwo.compareTo(valueeThree) > 0)
+		}
+		else if (valueTwo.compareTo(valueeThree) > 0)
 			return valueTwo;
-		else
+		else 
 			return valueeThree;
-		
 	}
-
+	
 	public static void main(String[] args) {
-		MaximumNumber numberObj = new MaximumNumber("1", "3", "6");
-		
-		maximumValue(numberObj.valueOne, numberObj.valueTwo, numberObj.valueeThree);
-		
-		System.out.println("the grater value  is " + numberObj.maximumValue());
+		System.out.println("enter the three value ");
+		Integer firstValue = userInput();
+		Integer secondValue = userInput();
+		Integer thirdValue = userInput();
+		MaximumNumber<Integer> numberObj = new MaximumNumber<Integer>(firstValue, secondValue, thirdValue);
+		Integer maxvalue = numberObj.maximumValue();
+		System.out.println("maximum value is " +maxvalue);
 	}
 }
