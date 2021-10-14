@@ -1,30 +1,22 @@
 package com.generic;
 
-import java.util.Scanner;
-
-public class MaximumNumber<T extends Comparable<T>> {
-	T valueOne;
-	T valueTwo;
-	T valueeThree;
-	public MaximumNumber(T firstNumber, T secondNumber, T third ) {
-		valueOne = firstNumber;
-		valueTwo = secondNumber;
-		valueeThree = third;
-	}
-		
-	public T maximumValue() {
-		if(valueOne.compareTo(valueTwo) > 0) {
-			return valueOne;
+public class MaximumNumber {
+	
+	public static <E extends Comparable<E>> E findGrater(E []arry){
+		E getMaximum = arry[0];
+		for(E copyOfElement : arry) {
+			if(copyOfElement.compareTo(getMaximum) > 0 )
+				getMaximum = copyOfElement;
 		}
-		else if (valueTwo.compareTo(valueeThree) > 0)
-			return valueTwo;
-		else 
-			return valueeThree;
+		return getMaximum;	
 	}
 	
 	public static void main(String[] args) {
-		
-		MaximumNumber numberObj = new MaximumNumber("1","3","6");
-		System.out.println("the grater value  is "+numberObj.maximumValue());
+		Integer []integer = {34,68,43};
+		String []string = {"shailesh", "kush", "shashank"};
+		Float []floatValue= {56.3f,66.3f,88.4f};
+		System.out.println("the grater value is "+findGrater(integer));
+		System.out.println("the grater value is "+findGrater(string));
+		System.out.println("the grater value is "+findGrater(floatValue));	
 	}
 }
