@@ -4,25 +4,26 @@ import java.util.Scanner;
 
 public class MaximumNumber {
 	
-	private static final Scanner userInput = new Scanner(System.in);
+	static Scanner userInput = new Scanner(System.in);
 	
-	public static void findMaximumNumber() {
+	public static Integer findMaximumNumber(Integer valueOne, Integer valueTwo, Integer valueThree) {
 		
-		System.out.println("Enter the fisrst number");
-		int numberOne = userInput.nextInt();
-		System.out.println("Enter the Second number");
-		int numberTwo = userInput.nextInt();
-		System.out.println("Enter the Third number");
-		int numberThree = userInput.nextInt();
-		if(numberOne > numberTwo && numberOne > numberThree)
-			System.out.println("the bigger number is "+numberOne);
-		else if(numberTwo > numberOne && numberTwo > numberThree)
-			System.out.println("the bigger number is "+numberTwo);
-		else
-			System.out.println("the bigger number is "+numberThree);	
+		if(valueOne.compareTo(valueTwo) > 0 && valueOne.compareTo(valueThree) > 0)
+			return valueOne;
+		else if (valueTwo.compareTo(valueOne) > 0 && valueTwo.compareTo(valueThree) > 0)
+			return valueTwo;
+		else 
+			return valueThree;		
 	}
 	
 	public static void main(String[] args) {
-		findMaximumNumber();
+		System.out.println("Enter the first number");
+		Integer numberOne = userInput.nextInt();
+		System.out.println("Enter the second number");
+		Integer numberTwo = userInput.nextInt();
+		System.out.println("Enter third number");
+		Integer numberThree = userInput.nextInt();
+		Integer maxValue = findMaximumNumber(numberOne, numberTwo, numberThree);
+		System.out.println("The maximum value among three is "+maxValue);
 	}
 }
