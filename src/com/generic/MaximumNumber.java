@@ -1,22 +1,41 @@
 package com.generic;
 
-public class MaximumNumber {
-	
-	public static <E extends Comparable<E>> E findGrater(E []arry){
-		E getMaximum = arry[0];
-		for(E copyOfElement : arry) {
-			if(copyOfElement.compareTo(getMaximum) > 0 )
-				getMaximum = copyOfElement;
-		}
-		return getMaximum;	
+import java.util.Scanner;
+
+public class MaximumNumber<T extends Comparable<T>> {
+	T ValueOne, valueTwo, valueThree;
+
+	public MaximumNumber(T valueOne, T ValueTwo, T valueThree) {
+		this.ValueOne = valueOne;
+		this.valueTwo = ValueTwo;
+		this.valueThree = valueThree;
 	}
-	
+
+	public T maximum() {
+		return MaximumNumber.maximum(ValueOne, valueTwo, valueThree);
+	}
+
+	public static <T extends Comparable<T>> T maximum(T valueOne, T valueTwo, T ValueThree) {
+		T maximum = valueOne;
+		if (valueTwo.compareTo(maximum) > 0)
+			maximum = valueTwo;
+		if (ValueThree.compareTo(maximum) > 0)
+			maximum = ValueThree;
+		return maximum;
+
+	}
+
 	public static void main(String[] args) {
-		Integer []integer = {34,68,43};
-		String []string = {"shailesh", "kush", "shashank"};
-		Float []floatValue= {56.3f,66.3f,88.4f};
-		System.out.println("the grater value is " +findGrater(integer));
-		System.out.println("the grater value is " +findGrater(string));
-		System.out.println("the grater value is " +findGrater(floatValue));	
+		Scanner userInput = new Scanner(System.in);
+		System.out.println("enter the first one");
+		Integer intOne = userInput.nextInt();
+		System.out.println("enter the second value");
+		Integer intTwo = userInput.nextInt();
+		System.out.println("enter the third value");
+		Integer intThree = userInput.nextInt();
+		new MaximumNumber(intOne, intTwo, intThree).maximum();
+		System.out.println("Print Maximum Number is :" + " " + new MaximumNumber(intOne, intTwo, intThree).maximum());
+
 	}
+
 }
