@@ -6,7 +6,7 @@ public class MaximumString {
 	
 	static Scanner userInput = new Scanner(System.in);
 	
-	public static String findMaximumNumberForString(String stringOne, String stringTwo, String stringThree) {
+	public static String findGraterString(String stringOne, String stringTwo, String stringThree) {
 		if(stringOne.compareTo(stringTwo) > 0 && stringOne.compareTo(stringThree) > 0)
 			return stringOne;
 		else if (stringTwo.compareTo(stringOne) > 0 && stringTwo.compareTo(stringThree) > 0)
@@ -22,6 +22,6 @@ public class MaximumString {
 		String stringTwo = userInput.nextLine();
 		System.out.println("Enter third String");
 		String stringThree = userInput.nextLine();
-		System.out.println("The maximum value among three is "+findMaximumNumberForString(stringOne, stringTwo, stringThree));
+		System.out.println("The maximum value among three is "+findGraterString(stringOne, stringTwo, stringThree));
 	}
 }
