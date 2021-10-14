@@ -2,41 +2,26 @@ package com.generic;
 
 import java.util.Scanner;
 
-public class MaximumNumber<T extends Comparable<T>> {
-	T valueOne;
-	T valueTwo;
-	T valueeThree;
-	public MaximumNumber(T firstNumber, T secondNumber, T third ) {
-		valueOne = firstNumber;
-		valueTwo = secondNumber;
-		valueeThree = third;
-	}
+public class MaximumNumber {
 	
-	public static String userInput() {
-		System.out.println("enter the value");
-		Scanner inputObj = new Scanner(System.in);
-		 String StringValue = inputObj.nextLine();
-		return StringValue;
-	}
+	static Scanner userInput = new Scanner(System.in);
 	
-	public String maximumValue() {
-		if(valueOne.compareTo(valueTwo) > 0) {
-			return (String)valueOne;
-		}
-		else if (valueTwo.compareTo(valueeThree) > 0)
-			return (String)valueTwo;
+	public static String findMaximumNumberForString(String stringOne, String stringTwo, String stringThree) {
+		if(stringOne.compareTo(stringTwo) > 0 && stringOne.compareTo(stringThree) > 0)
+			return stringOne;
+		else if (stringTwo.compareTo(stringOne) > 0 && stringTwo.compareTo(stringThree) > 0)
+			return stringTwo;
 		else 
-			return (String)valueeThree;
+			return stringThree;		
 	}
 	
 	public static void main(String[] args) {
-		System.out.println("enter the three String ");
-		String firstValue = userInput();
-		String secondValue = userInput();
-		String thirdValue = userInput();
-		
-		MaximumNumber<String> numberObj = new MaximumNumber<String>(firstValue, secondValue, thirdValue);
-		String maxvalue = numberObj.maximumValue();
-		System.out.println("the grater string  is "+maxvalue);
+		System.out.println("Enter the first String");
+		String stringOne = userInput.nextLine();
+		System.out.println("Enter the second String");
+		String stringTwo = userInput.nextLine();
+		System.out.println("Enter third String");
+		String stringThree = userInput.nextLine();
+		System.out.println("The maximum value among three is "+findMaximumNumberForString(stringOne, stringTwo, stringThree));
 	}
 }
