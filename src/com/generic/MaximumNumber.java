@@ -13,23 +13,28 @@ public class MaximumNumber<T extends Comparable<T>> {
 		return MaximumNumber.maximum(multiple);
 	}
 
-	public static <T extends Comparable<T>> T maximum(T []multiple) {
+	public static <T extends Comparable<T>> T maximum(T []arry) {
 		final int  ZERO = 0;
-		for (int i = ZERO; i < multiple.length; i++) {
-			for (int j = i; j < multiple.length; j++) {
-				if (multiple[i].compareTo(multiple[j]) < 0) {
-					T temp = multiple[i];
-					multiple[i] = multiple[j];
-					multiple[j] = temp;
+		for (int i = ZERO; i < arry.length; i++) {
+			for (int j = i; j < arry.length; j++) {
+				if (arry[i].compareTo(arry[j]) < 0) {
+					T temp = arry[i];
+					arry[i] = arry[j];
+					arry[j] = temp;
 				}
 			}
 		}
-		return multiple[0];
+		MaximumNumber.printMax(arry[0]);
+		return arry[0];
+	}
+	
+	private static <T> void printMax(T t) {
+		System.out.println("the maximum vaue is "+t);		
 	}
 
 	public static void main(String[] args) {
-		Integer [] multiString = {23, 45,35,44,33};
-		int maxValue = new MaximumNumber<Integer>(multiString).maximum();
+		Integer [] integerArry = {23, 45,35,44,33};
+		int maxValue = new MaximumNumber<Integer>(integerArry).maximum();
 		System.out.println("the maximum value of arry "+maxValue);
 	}
 }
