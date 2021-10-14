@@ -2,7 +2,7 @@ package com.generic;
 
 import java.util.Scanner;
 
-public class MaximumNumber {
+public class MaximumString {
 	
 	static Scanner userInput = new Scanner(System.in);
 	
