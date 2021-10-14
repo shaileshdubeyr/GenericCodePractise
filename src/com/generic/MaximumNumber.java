@@ -1,28 +1,22 @@
 package com.generic;
 
-import java.util.Scanner;
-
 public class MaximumNumber {
 	
-	static Scanner userInput = new Scanner(System.in);
-	
-	public static Float findMaximumNumberForFloat(Float valueOne, Float valueTwo, Float valueThree) {
-		if(valueOne.compareTo(valueTwo) > 0 && valueOne.compareTo(valueThree) > 0)
-			return valueOne;
-		else if (valueTwo.compareTo(valueOne) > 0 && valueTwo.compareTo(valueThree) > 0)
-			return valueTwo;
-		else 
-			return valueThree;		
+	public static <E extends Comparable<E>> E findGrater(E []arry){
+		E getMaximum = arry[0];
+		for(E copyOfElement : arry) {
+			if(copyOfElement.compareTo(getMaximum) > 0 )
+				getMaximum = copyOfElement;
+		}
+		return getMaximum;	
 	}
 	
 	public static void main(String[] args) {
-		System.out.println("Enter the first number");
-		Float numberOne = userInput.nextFloat();
-		System.out.println("Enter the second number");
-		Float numberTwo = userInput.nextFloat();
-		System.out.println("Enter third number");
-		Float numberThree = userInput.nextFloat();
-		Float maxValue = findMaximumNumberForFloat(numberOne, numberTwo, numberThree);
-		System.out.println("The maximum value among three is "+maxValue);
+		Integer []integer = {34,68,43};
+		String []string = {"shailesh", "kush", "shashank"};
+		Float []floatValue= {56.3f,66.3f,88.4f};
+		System.out.println("the grater value is "+findGrater(integer));
+		System.out.println("the grater value is "+findGrater(string));
+		System.out.println("the grater value is "+findGrater(floatValue));	
 	}
 }
