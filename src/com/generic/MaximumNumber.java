@@ -15,8 +15,8 @@ public class MaximumNumber {
 		Integer []integer = {34,68,43};
 		String []string = {"shailesh", "kush", "shashank"};
 		Float []floatValue= {56.3f,66.3f,88.4f};
-		System.out.println("the grater value is "+findGrater(integer));
-		System.out.println("the grater value is "+findGrater(string));
-		System.out.println("the grater value is "+findGrater(floatValue));	
+		System.out.println("the grater value is " +findGrater(integer));
+		System.out.println("the grater value is " +findGrater(string));
+		System.out.println("the grater value is " +findGrater(floatValue));	
 	}
 }
